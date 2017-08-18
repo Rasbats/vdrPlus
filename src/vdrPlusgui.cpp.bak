@@ -1,0 +1,166 @@
+///////////////////////////////////////////////////////////////////////////
+// C++ code generated with wxFormBuilder (version Oct  8 2012)
+// http://www.wxformbuilder.org/
+//
+// PLEASE DO "NOT" EDIT THIS FILE!
+///////////////////////////////////////////////////////////////////////////
+
+#include "vdrPlusgui.h"
+
+///////////////////////////////////////////////////////////////////////////
+
+DlgDef::DlgDef( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxSize( -1,-1 ), wxDefaultSize );
+	
+	wxColour cl;
+	GetGlobalColor(_T("DILG1"), &cl);
+	SetBackgroundColour(cl);
+
+	wxFlexGridSizer *topsizer = new wxFlexGridSizer(2);
+	topsizer->AddGrowableCol(1);
+
+	search = new wxStaticText(this, wxID_ANY, wxT("Find the NMEA File:"), wxDefaultPosition, wxDefaultSize, 0);
+	search->Wrap(-1);
+	topsizer->Add(search, 0, wxALL, 5);
+
+	fdlg = new wxFilePickerCtrl(this, wxID_ANY, wxEmptyString, wxT("Select a file"), wxT("*.*"), wxDefaultPosition, wxDefaultSize, wxFLP_FILE_MUST_EXIST | wxFLP_OPEN);
+	topsizer->Add(fdlg, 0, wxALL, 5);
+
+
+	nmeafile = new wxStaticText(this, wxID_ANY, wxT("File Name:"), wxDefaultPosition, wxDefaultSize, 0);
+	nmeafile->Wrap(-1);
+	topsizer->Add(nmeafile, 0, wxALL, 5);
+
+	itemStaticText00 = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
+	topsizer->Add(itemStaticText00, 1, wxALL | wxEXPAND, 5);
+
+	m_staticline7 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL);
+	topsizer->Add(m_staticline7, 0, wxEXPAND | wxALL, 5);
+
+	m_staticline8 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL);
+	topsizer->Add(m_staticline8, 0, wxEXPAND | wxALL, 5);
+
+	m_buttonAnalyse = new wxButton(this, wxID_ANY, wxT("Analyse"), wxDefaultPosition, wxDefaultSize, 0);
+	topsizer->Add(m_buttonAnalyse, 0, wxALL, 5);
+
+	m_textCtrlID = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
+	m_textCtrlID->SetFont(wxFont(wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString));
+	m_textCtrlID->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_BTNSHADOW));
+
+	topsizer->Add(m_textCtrlID, 0, wxALL | wxEXPAND, 5);
+
+	m_startDateTime = new wxStaticText(this, wxID_ANY, wxT("Start Date/Time:"), wxDefaultPosition, wxDefaultSize, 0);
+	m_startDateTime->Wrap(-1);
+	topsizer->Add(m_startDateTime, 0, wxALL, 5);
+
+	m_textCtrlStartDateTime = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
+	topsizer->Add(m_textCtrlStartDateTime, 0, wxALL | wxEXPAND, 5);
+
+	m_endDateTime = new wxStaticText(this, wxID_ANY, wxT("End Date/Time:"), wxDefaultPosition, wxDefaultSize, 0);
+	m_endDateTime->Wrap(-1);
+	topsizer->Add(m_endDateTime, 0, wxALL, 5);
+
+	m_textCtrlEndDateTime = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
+	topsizer->Add(m_textCtrlEndDateTime, 0, wxALL | wxEXPAND, 5);
+
+	m_duration = new wxStaticText(this, wxID_ANY, wxT("Duration:"), wxDefaultPosition, wxDefaultSize, 0);
+	m_duration->Wrap(-1);
+	topsizer->Add(m_duration, 0, wxALL, 5);
+
+	m_textCtrlDuration = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
+	topsizer->Add(m_textCtrlDuration, 0, wxALL, 5);
+
+	m_staticline5 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL);
+	topsizer->Add(m_staticline5, 0, wxEXPAND | wxALL, 5);
+
+	m_staticline6 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL);
+	topsizer->Add(m_staticline6, 0, wxEXPAND | wxALL, 5);
+
+	m_bpPlay = new wxBitmapButton(this, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW);
+	topsizer->Add(m_bpPlay, 0, wxBOTTOM | wxLEFT | wxTOP, 1);
+
+	m_buttonStop = new wxButton(this, wxID_ANY, wxT("Stop"), wxDefaultPosition, wxDefaultSize, 0);
+	topsizer->Add(m_buttonStop, 0, wxALL, 5);
+
+	m_buttonPause = new wxButton(this, wxID_ANY, wxT("Pause"), wxDefaultPosition, wxDefaultSize, 0);
+	topsizer->Add(m_buttonPause, 0, wxALL, 5);
+
+	m_staticline91 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL);
+	topsizer->Add(m_staticline91, 0, wxEXPAND | wxALL, 5);
+
+	m_staticTextSpeedMultiplier = new wxStaticText(this, wxID_ANY, wxT("Speed Multiplier"), wxDefaultPosition, wxDefaultSize, 0);
+	m_staticTextSpeedMultiplier->Wrap(-1);
+	topsizer->Add(m_staticTextSpeedMultiplier, 0, wxALL, 5);
+
+	wxString m_cMultiplierChoices[] = { wxT("0"), wxT("1"), wxT("2"), wxT("3"), wxT("4"), wxT("5") };
+	int m_cMultiplierNChoices = sizeof(m_cMultiplierChoices) / sizeof(wxString);
+
+	m_cMultiplier = new wxChoice(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_cMultiplierNChoices, m_cMultiplierChoices, 0);
+	m_cMultiplier->SetSelection(0);
+	topsizer->Add(m_cMultiplier, 0, wxALL, 5);
+	// m_staticline3 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0);
+	// topsizer->Add(m_staticline3, 0, wxEXPAND | wxALL, 0);
+
+	m_bpButtonChooseTime = new wxButton(this, wxID_ANY, wxT("Calendar"), wxDefaultPosition, wxDefaultSize, 0);
+	topsizer->Add(m_bpButtonChooseTime, 0, wxALL, 5);
+
+	m_textCtrlSetTime = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY);
+	topsizer->Add(m_textCtrlSetTime, 0, wxALL | wxEXPAND, 5);
+
+	m_buttonSetTime = new wxButton(this, wxID_ANY, wxT("Set time"), wxDefaultPosition, wxDefaultSize, 0);
+	topsizer->Add(m_buttonSetTime, 0, wxALL, 5);
+
+	m_staticline9 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL);
+	topsizer->Add(m_staticline9, 0, wxEXPAND | wxALL, 5);
+
+	m_staticline11 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL);
+	topsizer->Add(m_staticline11, 0, wxEXPAND | wxALL, 5);
+
+	m_staticline10 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL);
+	topsizer->Add(m_staticline10, 0, wxEXPAND | wxALL, 5);
+
+	wxStaticText *itemStaticText01 = new wxStaticText(this, wxID_ANY, _("Speed:"));
+	topsizer->Add(itemStaticText01, 0, wxEXPAND | wxALL, 2);
+
+	m_pslider = new wxSlider(this, wxID_ANY, speed, 1, 100, wxDefaultPosition, wxSize(200, 20));
+	topsizer->Add(m_pslider, 1, wxALL | wxEXPAND, 2);
+	m_pslider->Connect(wxEVT_COMMAND_SLIDER_UPDATED, wxCommandEventHandler(DlgDef::OnSliderUpdated), NULL, this);
+
+	wxStaticText *itemStaticText02 = new wxStaticText(this, wxID_ANY, _("Progress:"));
+	topsizer->Add(itemStaticText02, 0, wxEXPAND | wxALL, 2);
+
+	m_pgauge = new wxGauge(this, wxID_ANY, range, wxDefaultPosition, wxDefaultSize, wxGA_HORIZONTAL);
+	topsizer->Add(m_pgauge, 1, wxALL | wxEXPAND, 2);
+
+	
+	topsizer->Fit(this);	
+	
+	this->SetSizer(topsizer);
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+	
+	// Connect Events
+	fdlg->Connect(wxEVT_COMMAND_FILEPICKER_CHANGED, wxFileDirPickerEventHandler(DlgDef::SelectNmeaFile), NULL, this);
+	m_buttonAnalyse->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(DlgDef::Analyse), NULL, this);
+	m_bpPlay->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(DlgDef::OnStart), NULL, this);
+	m_buttonStop->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(DlgDef::OnStop), NULL, this);
+	m_buttonPause->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(DlgDef::OnPause), NULL, this);
+	m_bpButtonChooseTime->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(DlgDef::OnCalendarShow), NULL, this);
+	m_buttonSetTime->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(DlgDef::OnSetTime), NULL, this);
+	this->Connect(wxEVT_TIMER, wxTimerEventHandler(DlgDef::OnTimer), NULL, this);
+	// Connect Events
+	//m_button3111->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DlgDef::OnExtract ), NULL, this );
+	//this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( DlgDef::OnClose) );
+}
+
+DlgDef::~DlgDef()
+{
+	m_bpPlay->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(DlgDef::OnStart), NULL, this);
+
+	// Disconnect Events
+	//m_button3111->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DlgDef::OnExtract ), NULL, this );
+	//this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( DlgDef::OnClose ) );
+}
+
